@@ -72,11 +72,17 @@ while running: #Game loop
         bVx *=-1
     ball_x += bVx
     
-    if ball_y < 0 or ball_y >800:
+    if ball_y < 0:
         bVy *=-1
     ball_y += bVy
     
-    #if ball_y > 800:
+    if life == 0:
+        running = False
+    
+    if ball_y > 800:
+        life -= 1
+        ball_x = px
+        ball_y = 765
     
     #ballxbrick
     if b0.collide(ball_x, ball_y):
